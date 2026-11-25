@@ -1,0 +1,13 @@
+# Build di Maven
+target/
+
+# Configurazione di IntelliJ
+.idea/
+*.iml
+
+# Codice in sospeso
+wip/
+
+# File di sistema
+.DS_Store
+Thumbs.db
