@@ -1,7 +1,10 @@
 package it.pilates.controller;
 
+import it.pilates.dto.CreateUserRequest;
 import it.pilates.dto.UserResponse;
 import it.pilates.service.UserService;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,5 +25,10 @@ public class UserController {
     @GetMapping(params = "email")
     public UserResponse findByEmail(@RequestParam String email) {
         return userService.findByEmail(email);
+    }
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public UserResponse create(@Valid @RequestBody CreateUserRequest request) {
+        return userService.create(request);
     }
 }
